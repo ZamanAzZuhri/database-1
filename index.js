@@ -15,7 +15,7 @@ const drivers = [
 console.log(drivers);
 
 // TODO: show the all the drivers name in the console 
-drivers.forEach((Element) => console.log(element)); 
+drivers.forEach((element) => console.log(element)); 
 
 // TODO: add additional driver to the drivers array
 const count = drivers.push("hamshar");
