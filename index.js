@@ -2,12 +2,12 @@ const { MongoClient } = require("mongodb");
 
 const drivers = [
   {
-    name: "WAN MOHAMMAD ZAMAN AZ ZUHRI BIN ZAINUDDIN "
-    matrics: "b122320074"
+    name: "WAN MOHAMMAD ZAMAN AZ ZUHRI BIN ZAINUDDIN ",
+    matrics: "b122320074",
   },
   {
-    name: "anyone"
-    matrics: "b12321"
+    name: "anyone",
+    matrics: "b12321",
   }
 ]
 // show the data in the console
