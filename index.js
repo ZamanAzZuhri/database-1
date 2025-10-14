@@ -10,6 +10,9 @@ const drivers = [
     matrics: "b12321"
   }
 ]
+// show the data in the console
+console.log(drivers);
+
 
 async function main() {
   const uri = "mongodb://127.0.0.1:27017";
