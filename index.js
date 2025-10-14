@@ -9,7 +9,8 @@ const drivers = [
     name: "anyone",
     matrics: "b12321",
   }
-]
+]; 
+
 // show the data in the console
 console.log(drivers);
 
