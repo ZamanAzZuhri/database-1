@@ -21,7 +21,7 @@ drivers.forEach((element) => console.log(element));
 const count = drivers.push("hamshar");
 console.log(count);
 console.log(drivers);
-/*
+
 async function main() {
   const uri = "mongodb://127.0.0.1:27017";
   const client = new MongoClient(uri);
@@ -40,6 +40,6 @@ async function main() {
   } finally {
     await client.close();
   }
-}*/
+}
 
 main();
