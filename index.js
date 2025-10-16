@@ -1,14 +1,19 @@
 
 const drivers = [
-  {
-    name: "WAN MOHAMMAD ZAMAN AZ ZUHRI BIN ZAINUDDIN ",
-    matrics: "b122320074",
+  { 
+    name: "WAN MOHAMMAD ZAMAN AZ ZUHRI BIN ZAINUDDIN (B122320074)",
+    vehicleType: "sedan" ,
+    rating: 4.6, 
+    isAvailable: true 
   },
-  {
-    name: "anyone",
-    matrics: "b12321",
-  }
-]; 
+  { 
+    name: "Jane Smith", 
+    vehicleType: "suv",
+    rating: 4.2, 
+    isAvailable: false 
+  },
+];
+
 
 // show the data in the console
 console.log(drivers);
@@ -19,7 +24,7 @@ drivers.forEach(driver => console.log(driver.name));
 console.log("----------------------------------------------------------")
 
 // TODO: add additional driver to the drivers array
-const count = drivers.push({name: "hamshar", matrics: "b999999"});
+const count = drivers.push({name: "hamshar", vehicleType:"mpv", rating: 3.5, isAvailable: true});
 console.log(count);
 console.log("---------------");
 console.log(drivers);
@@ -36,15 +41,21 @@ async function main() {
 
     const db = client.db("testDB");
 
+    //task 3
+    console.log("task 3");
+
     const driversCollection = db.collection("drivers");
 
     drivers.forEach(async (driver) => {
-      const result = await driversCollection.insertOne(driver);
-      console.log ("new driver created with result: ", result );
-      console.log("Inserted documents count:", result.insertedCount);
-      console.log("Inserted document with _id:", result.insertedId);
+      const result = await driversCollection.insertMany(drivers);
+      console.log("✅ Inserted documents count:", result.insertedCount);
+      console.log("✅ Inserted IDs:", result.insertedIds);
+
     });
-  
+    
+    //task 4
+    console.log("task 4");
+
     const availableDrivers = await db.collection('drivers').find ({
       isAvailable: true,
       rating: {$gte: 4.5} 
