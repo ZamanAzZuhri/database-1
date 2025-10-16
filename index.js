@@ -46,12 +46,12 @@ async function main() {
 
     const driversCollection = db.collection("drivers");
 
-    drivers.forEach(async (driver) => {
+    //drivers.forEach(async (driver) => {
       const result = await driversCollection.insertMany(drivers);
       console.log("✅ Inserted documents count:", result.insertedCount);
       console.log("✅ Inserted IDs:", result.insertedIds);
 
-    });
+    //});
     
     //task 4
     console.log("task 4");
@@ -61,7 +61,15 @@ async function main() {
       rating: {$gte: 4.5} 
     }).toArray();
     console.log("Available drivers:", availableDrivers);
+
+    //task 5
     
+    await collection.updateOne(
+    { name: "WAN MOHAMMAD ZAMAN AZ ZUHRI BIN ZAINUDDIN (B122320074)" },
+    { $inc: { rating: 0.1 } }
+    );
+
+
    
     
   }catch (err) {
