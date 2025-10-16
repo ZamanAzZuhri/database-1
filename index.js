@@ -1,4 +1,3 @@
-const { MongoClient } = require("mongodb");
 
 const drivers = [
   {
@@ -25,23 +24,41 @@ console.log(count);
 console.log("---------------");
 console.log(drivers);
 
+const { MongoClient } = require("mongodb");
+
 async function main() {
   const uri = "mongodb://127.0.0.1:27017";
   const client = new MongoClient(uri);
 
   try {
     await client.connect();
-    console.log("Connected to MongoDB!");
+    console.log("connected to mongodb");
 
     const db = client.db("testDB");
-    const users = db.collection("users");
 
-    const result = await users.insertOne({ name: "Test User", age: 25 });
-    console.log("Inserted document with _id:", result.insertedId);
-  } catch (err) {
+    const driversCollection = db.collection("drivers");
+
+    drivers.forEach(async (driver) => {
+      const result = await driversCollection.insertOne(driver);
+      console.log ("new driver created with result: ", result );
+      console.log("Inserted documents count:", result.insertedCount);
+      console.log("Inserted document with _id:", result.insertedId);
+    });
+  
+    const availableDrivers = await db.collection('drivers').find ({
+      isAvailable: true,
+      rating: {$gte: 4.5} 
+    }).toArray();
+    console.log("Available drivers:", availableDrivers);
+    
+   
+    
+  }catch (err) {
     console.error("Error:", err);
-  } finally {
+  }
+  finally {
     await client.close();
+    console.log("✅ MongoDB connection closed.");
   }
 }
 
