@@ -22,6 +22,7 @@ console.log("----------------------------------------------------------")
 // TODO: add additional driver to the drivers array
 const count = drivers.push({name: "hamshar", matrics: "b999999"});
 console.log(count);
+console.log("---------------");
 console.log(drivers);
 
 async function main() {
