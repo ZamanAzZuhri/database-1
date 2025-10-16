@@ -15,11 +15,12 @@ const drivers = [
 console.log(drivers);
 
 // TODO: show the all the drivers name in the console 
-drivers.forEach(driver => console.log("Driver name:", driver.name));
+drivers.forEach(driver => console.log(driver.name));
+
+console.log("----------------------------------------------------------")
 
 // TODO: add additional driver to the drivers array
-const count = drivers.push({
-  name: "hamshar", matrics: "b999999"});
+const count = drivers.push({name: "hamshar", matrics: "b999999"});
 console.log(count);
 console.log(drivers);
 
