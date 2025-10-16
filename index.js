@@ -62,14 +62,18 @@ async function main() {
     }).toArray();
     console.log("Available drivers:", availableDrivers);
 
-    //task 5
+    //task 5 update
     
-    await collection.updateOne(
-    { name: "WAN MOHAMMAD ZAMAN AZ ZUHRI BIN ZAINUDDIN (B122320074)" },
-    { $inc: { rating: 0.1 } }
+      const updateResult = await driversCollection.updateOne(
+      { name: "WAN MOHAMMAD ZAMAN AZ ZUHRI BIN ZAINUDDIN (B122320074)" },
+      { $inc: { rating: 0.1 } }
     );
+    console.log("✅ Update result:", updateResult);
 
+    //task 6 delete
 
+      const deleteResult = await driversCollection.deleteOne({ available: false });
+    console.log("✅ Delete result:", deleteResult);
    
     
   }catch (err) {
